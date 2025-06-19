@@ -103,3 +103,5 @@ sym = s[:half] == s[half:] if len(s) % 2 == 0 else s[:half] == s[half+1:]
 
 print("Symmetrical" if sym else "Not Symmetrical")
 print("Palindrome" if pal else "Not Palindrome")
+
+#######################################################################################
