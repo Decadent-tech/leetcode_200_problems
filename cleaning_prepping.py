@@ -95,3 +95,26 @@ print(list(l_encoder.classes_))
 # Print the label dictionary
 label_dict = {k: v for k, v in zip(l_encoder.classes_, l_encoder.transform(l_encoder.classes_))}
 print(label_dict)
+
+from sklearn.preprocessing import OrdinalEncoder
+o_encoder = OrdinalEncoder()
+ary_2d = [['foo', 'bar', 'baz'], ['x', 'y', 'z']]
+o_encoder.fit(ary_2d) # Fit the values
+print(o_encoder.transform(ary_2d)) # Transform the values
+
+
+from sklearn.preprocessing import OneHotEncoder
+hot_encoder = OneHotEncoder(handle_unknown='ignore')
+hot_encoder.fit(ary_2d)
+print(hot_encoder.categories_)
+
+print(hot_encoder.transform([['foo', 'foo', 'baz'], ['y', 'y', 'x']]).toarray())  # Transform the values
+
+#dummie data
+new = pd.get_dummies(df)
+print(new)
+
+from sklearn.preprocessing import MinMaxScaler
+mm_scaler = MinMaxScaler(feature_range=(0, 1)) 
+print(mm_scaler.fit([ary_int]))
+print(mm_scaler.data_max_)
